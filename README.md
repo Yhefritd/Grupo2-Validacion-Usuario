@@ -8,6 +8,9 @@ El sistema permite:
 - Registrar nuevos clientes con campos obligatorios (nombre, correo, teléfono).
 - Validar la información ingresada por los propios clientes.
 - Brindar una experiencia de usuario interactiva y moderna.
+<img width="949" height="424" alt="ValidacionUsers" src="https://github.com/user-attachments/assets/1d7935e9-b483-4e7e-a383-d8e2078bf623" />
+
+<img width="946" height="427" alt="Validacion2" src="https://github.com/user-attachments/assets/5d99c581-4837-412f-a2a4-0309e134aba8" />
 
 ---
 

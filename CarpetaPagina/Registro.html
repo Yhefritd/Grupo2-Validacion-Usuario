@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="background">
         <div class="login-box">
-            <h2>Login</h2>
+            <h2>Registro</h2>
             <form>
+                <div class="textbox">
+                    <input type="name" placeholder="Nombre" required>
+                </div>
                 <div class="textbox">
                     <input type="email" placeholder="Email" required>
                 </div>
                 <div class="textbox">
+                    <input type="tel" maxlength="9" placeholder="Telefono" required>
+                </div>
+                <div class="textbox">
                     <input type="password" placeholder="Password" required>
                 </div>
-                <button type="submit" class="btn">Login</button>
-            </form>
-            <div class="register">
-                <p>¿No tienes una cuenta? <a href="Registro.html">Registrarse</a></p>
+                <button type="submit" class="btn">Registrarse</button>
+                <div class="register">
+                <p>¿Ya tienes una cuenta? <a href="index.html">Iniciar sesion</a></p>
             </div>
-            
+            </form>
         </div>
     </div>
 </body>

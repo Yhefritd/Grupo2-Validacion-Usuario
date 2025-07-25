@@ -8,7 +8,7 @@
 /* Fondo de pantalla */
 body {
     font-family: Arial, sans-serif;
-    background-image: url('descarga\ \(5\).jpeg'); /* Aquí puedes poner la imagen de fondo que desees */
+    background-image: url('fondo1.jpg'); /* Aquí puedes poner la imagen de fondo que desees */
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -19,7 +19,7 @@ body {
 
 /* Caja de login */
 .login-box {
-    background: rgba(255, 255, 255, 0.8); /* Fondo blanco con algo de opacidad */
+    background: rgba(255, 255, 255, 0.5); /* Fondo blanco con algo de opacidad */
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -101,7 +101,7 @@ body {
 }
 
 .register a {
-    color: #4CAF50;
+    color: #0d6f1c;
     text-decoration: none;
 }
 

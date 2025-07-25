@@ -70,6 +70,12 @@ Además, tenemos un **README en el tablero** que:
 
 ---
 
+## Link de trello
+
+-link:https://trello.com/invite/b/6881ab707d5794dd285fa394/ATTIcdd8cfee359b8334e7691506011da3096CFFABF9/grupo2-validacion-de-usuario
+
+---
+
 ## 🚀link del repositorio
 
 1. link del Repositorio

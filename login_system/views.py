@@ -1,33 +1,61 @@
-
-from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-from .models import Usuario
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth import authenticate, login
+from .models import ValidacionUser
 
-# Create your views here.
+
 def index(request):
     return render(request, 'index.html')
 
 
 def registro(request):
     if request.method == 'POST':
-        # Obtén los datos del formulario
+        # Recibimos los datos del formulario
         nombre = request.POST['nombre']
         correo = request.POST['correo']
-        contraseña = request.POST['contraseña']
-        telefono = request.POST.get('telefono', '')
+        telefono = request.POST['telefono']
+        password = request.POST['password']
 
-        print(f"Nombre: {nombre}, Correo: {correo}, Contraseña: {contraseña}, Teléfono: {telefono}")  # Para depuración
+        if not nombre or not correo or not telefono or not password:
+            return render(request, 'registro.html', {'error': 'Por favor complete todos los campos.'})
 
-        # Crea un nuevo usuario y guárdalo en la base de datos
-        usuario = Usuario(
+        # Encriptamos la contraseña
+        password_encriptada = make_password(password)
+
+        # Creamos un nuevo usuario y lo guardamos en la base de datos
+        nuevo_usuario = ValidacionUser(
             nombre=nombre,
             correo=correo,
-            contraseña=contraseña,  # Recuerda que deberías encriptar la contraseña antes de guardarla
-            telefono=telefono
+            telefono=telefono,
+            password=password_encriptada
         )
-        usuario.save()
+        nuevo_usuario.save()
 
-        # Redirige a una página de éxito o de inicio de sesión
-        return redirect('login')  # O la URL a la que quieras redirigir
+        # Redirigimos a la página de login (o a donde desees)
+        return redirect('index')
 
-    return render(request, 'register.html')
+    return render(request, 'registro.html')
+
+def login_view(request):
+    if request.method == 'POST':
+        correo = request.POST['correo']
+        password = request.POST['password']
+
+        # Autenticamos al usuario
+        user = authenticate(request, username=correo, password=password)
+
+        if user is not None:
+            # Si el usuario es autenticado correctamente, iniciamos sesión
+            login(request, user)
+            return redirect('bienvenida')  # Redirige a la página de bienvenida
+        else:
+            # Si las credenciales son incorrectas, mostramos un error
+            return render(request, 'index.html', {'error': 'Credenciales incorrectas'})
+
+    return render(request, 'index.html')
+
+def bienvenida_view(request):
+    if request.user.is_authenticated:
+        return render(request, 'bienvenida.html')  # Solo mostrar si el usuario está autenticado
+    else:
+        return redirect('index')  # Si el usuario no está autenticado, redirigir a login

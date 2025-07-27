@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="background">
+        <div class="login-box">
+            <h2>Bienvenido, {{ user.nombre }}!</h2>  <!-- Nombre del usuario autenticado -->
+            <p>¡Has iniciado sesión con éxito!</p>
+            <a href="{% url 'index' %}" class="btn">Ir al inicio</a>  <!-- Enlace al inicio o al login -->
+        </div>
+    </div>
+</body>
+</html>
